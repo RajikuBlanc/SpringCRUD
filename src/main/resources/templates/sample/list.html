@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Sample</title>
+</head>
+<body>
+<h2>一覧ページ</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>old</th>
+    </tr>
+    <tr th:each="test : ${testList}">
+        <td th:text="${test.id}"></td>
+        <td>
+            <a href="#" th:href="@{'/sample/detail/' + ${test.id}}" th:text="${test.name}"></a>
+        </td>
+        <td th:text="${test.old}"></td>
+    </tr>
+</table>
+<a href="#" th:href="@{/sample/create}">新規作成</a>
+</body>
+</html>

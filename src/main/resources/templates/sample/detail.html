@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>詳細画面</title>
+</head>
+<body>
+<h2>詳細画面</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>年齢</th>
+    </tr>
+    <tr>
+        <td th:text="${details.id}"></td>
+        <td th:text="${details.name}"></td>
+        <td th:text="${details.old}"></td>
+        <td>
+            <a href="#" th:href="@{'/sample/edit/' + ${details.id}}">
+                <button>編集</button>
+            </a>
+        </td>
+        <td>
+            <form action="#" method="post" th:action="@{'/sample/delete/' + ${details.id}}">
+                <button type="submit">削除</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<a href="#" th:href="@{/sample/list}">リスト一覧</a>
+</body>
+</html>
